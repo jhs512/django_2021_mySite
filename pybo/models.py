@@ -6,6 +6,9 @@ class Question(models.Model):
     content = models.TextField(default='')
     create_date = models.DateTimeField(default=None)
 
+    def __str__(self):
+        return "{}번, {}".format(self.id, self.subject)
+
 class Answer(models.Model):
     question = models.ForeignKey(Question, on_delete=models.CASCADE, default=None)
     content = models.TextField(default='')
